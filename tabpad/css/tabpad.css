@@ -1,0 +1,46 @@
+html, body {
+	margin: 0; padding: 0;
+	background-color: #242424;
+}
+.header {
+	background-color: #26AAE1;
+	color: #000;
+	padding: 8px 24px;
+}
+h1#title {
+	height: 5vh;
+	margin: 0;
+}
+#credits {
+	color: #000;
+	font-size: 16px;
+	position: absolute;
+	top: -12px;
+	right: 42px;
+}
+#credits a {
+	color: #333;
+}
+#credits a:hover {
+	color: #444;
+}
+
+p#description {
+	margin: 8px 0px 4px;
+}
+#tabpad {
+	height: 100%;
+	min-height: 80vh;
+	overflow: auto;
+	background-color: #242424;
+	color: #fff;
+
+	font-size: 24px;
+	padding: 24px;
+
+	white-space: pre;
+}
+
+[contenteditable] {
+	outline: 0px solid transparent;
+}

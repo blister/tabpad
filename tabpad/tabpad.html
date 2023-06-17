@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Your TabPad</title>
+	<meta name="description" content="A Google Chrome extension to provide a 'scratchpad' for notes on the 'New Tab' page.">
+	<meta name="author" content="SitePoint">
+
+	<meta property="og:title" content="Your TabPad">
+	<meta property="og:description" content="A Google Chrome extension to provide a 'scratchpad' for notes on the 'New Tab' page.">
+	<meta property="og:image" content="image.png">
+
+	<link rel="icon" href="/tabpad.png" type="image/png">
+
+	<link rel="stylesheet" href="/tabpad/css/tabpad.css?v=1.0">
+</head>
+
+<body>
+	<!-- your content here... -->
+	<div class="header">
+		<h1 id="title">TabPad</h1>
+		<div id="credits">
+			<ul style="list-style-type:none;">
+				<li>
+					crafted by <a href="https://ericharrison.info">Eric Harrison</a>
+				</li>
+				<li>
+					<img src="/tabpad/images/github.png" style="height:16px;"> <a href="https://github.com/blister/tabpad">Github Source</a>
+				</li>
+			</ul>
+		</div>
+		<p id="description">
+			Anything you write in here will be saved locally and be waiting for you in your next new tab.
+		</p>
+	</div>
+	<div id="tabpad" contenteditable></div>
+
+	<script src="/tabpad/scripts/tabpad.js"></script>
+</body>
+</html>
