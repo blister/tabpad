@@ -12,5 +12,11 @@
 	},
 	"permissions": [
 		"tabs"
-	]
+	],
+	"icons": {
+		"16": "/icons/tabpad-16.png",
+		"24": "/icons/tabpad-24.png",
+		"48": "/icons/tabpad-48.png",
+		"128": "/icons/tabpad-128.png"
+	}
 }
