@@ -1,44 +1,51 @@
-let contents = '';
+let editor;
 
-function handleInput(ev) {
-	let changes = ev.target.innerText;
-	contents = changes;
-	window.localStorage.setItem('tabpad', contents);
+const SPECIAL = {
+	'Tab': '\u0009',
+	'Enter': '\n',
+};
+
+function saveChanges(ev) {
+	window.localStorage.setItem('tabpad', ev.target.innerText);
 }
 
-// tabs are causing us to lose focus. we want tabs
-// so trap tab presses and insert them.
-function replaceTabs(ev) {
-	if ( ev.key === "Tab" ) {
+// Some keys, Tab and Enter, are special characters 
+// that we need to manually handle so that the browser
+// doesn't do something wonky. 
+function handleSpecialKeys(ev) {
+	if ( ev.key in SPECIAL ) {
 		ev.preventDefault();
 
-		let editor = document.getElementById("tabpad");
 		let doc = editor.ownerDocument.defaultView;
 		let sel = doc.getSelection();
 		let range = sel.getRangeAt(0);
 
-		let tabNode = document.createTextNode("\u0009");
-		range.insertNode(tabNode);
+		let specialNode = document.createTextNode(SPECIAL[ ev.key ]);
+		range.insertNode(specialNode);
 
-		range.setStartAfter(tabNode);
-		range.setEndAfter(tabNode); 
+		range.setStartAfter(specialNode);
+		range.setEndAfter(specialNode); 
 		sel.removeAllRanges();
 		sel.addRange(range);
+		
+		// now that we've properly handled tabs, save changes
+		saveChanges(ev);
 	}
 }
 
 function loadContent() {
-	contents = window.localStorage.getItem('tabpad');
-
-	if ( contents && contents.trim() != '' ) {
-		document.getElementById('tabpad').innerText = contents;
-	}
+	editor.innerText = window.localStorage.getItem('tabpad');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	loadContent();
-	document.addEventListener('visibilitychange', loadContent);
+	// fetch our editor node
+	editor = document.getElementById('tabpad');
 
-	document.getElementById('tabpad').addEventListener('keydown', replaceTabs);
-	document.getElementById('tabpad').addEventListener('input', handleInput);
+	// with the editor ready, load the existing content
+	loadContent();
+
+	// event handlers
+	document.addEventListener('visibilitychange', loadContent);
+	editor.addEventListener('keydown', handleSpecialKeys);
+	editor.addEventListener('input', saveChanges);
 });
