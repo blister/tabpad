@@ -5,8 +5,6 @@ const SPECIAL = {
 	'Enter': '\n',
 };
 
-let IN_LIST = false;
-
 function saveChanges(ev) {
 	window.localStorage.setItem('tabpad', ev.target.innerText);
 }
