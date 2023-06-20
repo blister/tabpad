@@ -1,0 +1,22 @@
+body {
+	min-height: 150px;
+	min-width: 350px;
+	background-color: #65ccf7;
+	color: #000;
+	padding: 12px;
+	font-family: "Open Sans", sans-serif;
+}
+
+a {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+ul {
+	list-style-type: none;
+}

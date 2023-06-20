@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "TabPad",
 	"description": "A Google Chrome extension to provide a 'scratchpad' for notes on the 'New Tab' page.",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"chrome_url_overrides": {
 		"newtab": "/tabpad/tabpad.html"
 	},
